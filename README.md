@@ -1,64 +1,105 @@
 # Cursor Team Skills
 
-Shared [Cursor Agent Skills](https://cursor.com/docs/agent/skills) for the team.
+סקילים משותפים ל-Cursor Agent עבור הצוות.
 
-## Quick start
+Repo: [github.com/romis207/romis](https://github.com/romis207/romis)
+
+---
+
+## התקנה (פעם אחת לכל משתמש)
+
+### 1. Clone
 
 ```bash
-git clone <YOUR_INTERNAL_GIT_URL>/cursor-team-skills.git ~/cursor-team-skills
+git clone git@github.com:romis207/romis.git ~/cursor-team-skills
+```
+
+> צריך SSH key רשום ב-GitHub. אם ה-repo Private — המנהלת מוסיפה אותך ב-**Settings → Collaborators**.
+
+### 2. קישור ל-Cursor
+
+```bash
 bash ~/cursor-team-skills/install.sh
 ```
 
-Restart Cursor (or open a new chat) so skills are picked up.
-
-## What gets installed
-
-`install.sh` symlinks each skill under `~/.cursor/skills/`:
+הסקריפט יוצר symlink לכל סקיל:
 
 ```
 ~/.cursor/skills/bulk-etc-change -> ~/cursor-team-skills/bulk-etc-change
 ```
 
-## Updating
+### 3. הפעלה מחדש
+
+סגרי ופתחי Cursor (או צ'אט חדש).
+
+### 4. בדיקה
+
+בצ'אט:
+
+```
+/bulk-etc-change
+```
+
+---
+
+## עדכון (כשמישהו דחף שינוי)
 
 ```bash
 cd ~/cursor-team-skills
 git pull
 ```
 
-No reinstall needed — symlinks point at the repo.
+אין צורך להריץ שוב `install.sh` — ה-symlink מצביע על אותה תיקייה.
 
-## Adding a new skill
-
-1. Create a folder with a `SKILL.md` file (see `bulk-etc-change/` as a template).
-2. Open a PR or push to `main`.
-3. Teammates run `git pull` in their clone.
-
-## Available skills
-
-| Skill | Description |
-|-------|-------------|
-| [bulk-etc-change](bulk-etc-change/) | Bulk ETC file replacement for GM sessions (ext_calib.conf, all views) |
-
-## Usage in Cursor
-
-After install, invoke in chat:
-
-```
-/bulk-etc-change for <session list or source paths>
-```
-
-Or describe the task naturally — the agent should pick up the skill from its description.
-
-## Repo setup (maintainers)
+אם נוסף **סקיל חדש** (תיקייה חדשה), הריצי `install.sh` פעם אחת:
 
 ```bash
-# one-time: create empty repo on internal Git (GitLab / Bitbucket / etc.)
-# then:
-cd ~/cursor-team-skills
-git init -b main
-git add .
-git commit -m "Initial commit: bulk-etc-change skill"
-git remote add origin <YOUR_INTERNAL_GIT_URL>/cursor-team-skills.git
-git push -u origin main
+bash ~/cursor-team-skills/install.sh
 ```
+
+---
+
+## עריכה ב-Cursor
+
+פתחי את התיקייה ב-Cursor:
+
+**File → Open Folder →** `~/cursor-team-skills`
+
+ערכי, ואז:
+
+```bash
+cd ~/cursor-team-skills
+git add .
+git commit -m "תיאור השינוי"
+git push
+```
+
+---
+
+## סקילים זמינים
+
+| סקיל | תיאור |
+|------|--------|
+| [bulk-etc-change](bulk-etc-change/) | החלפת קבצי ETC ב-bulk לסשני GM (ext_calib.conf, כל 4 ה-views) |
+
+---
+
+## הוספת סקיל חדש
+
+1. צרי תיקייה חדשה עם `SKILL.md` (ראי `bulk-etc-change/` כדוגמה).
+2. `git add . && git commit && git push`
+3. שאר הצוות: `git pull` + `bash install.sh` (רק לסקיל חדש).
+
+---
+
+## איך זה עובד
+
+```
+GitHub (romis207/romis)
+        ↓  git clone
+~/cursor-team-skills/          ← repo מקומי
+        ↓  install.sh
+~/.cursor/skills/<skill>/    ← Cursor קורא מכאן
+```
+
+**חשוב:** אל תערכי ישירות ב-`~/.cursor/skills/` — ערכי ב-`~/cursor-team-skills/`.
