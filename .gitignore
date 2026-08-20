@@ -1,0 +1,5 @@
+.DS_Store
+*.pyc
+__pycache__/
+.bulk_etc_change/
+bulk_etc_change/
