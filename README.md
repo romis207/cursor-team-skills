@@ -2,7 +2,7 @@
 
 סקילים משותפים ל-Cursor Agent עבור הצוות.
 
-Repo: [github.com/romis207/romis](https://github.com/romis207/romis)
+Repo: [github.com/romis207/cursor-team-skills](https://github.com/romis207/cursor-team-skills)
 
 ---
 
@@ -11,7 +11,7 @@ Repo: [github.com/romis207/romis](https://github.com/romis207/romis)
 ### 1. Clone
 
 ```bash
-git clone git@github.com:romis207/romis.git ~/cursor-team-skills
+git clone git@github.com:romis207/cursor-team-skills.git ~/cursor-team-skills
 ```
 
 > צריך SSH key רשום ב-GitHub. אם ה-repo Private — המנהלת מוסיפה אותך ב-**Settings → Collaborators**.
@@ -95,7 +95,7 @@ git push
 ## איך זה עובד
 
 ```
-GitHub (romis207/romis)
+GitHub (romis207/cursor-team-skills)
         ↓  git clone
 ~/cursor-team-skills/          ← repo מקומי
         ↓  install.sh
