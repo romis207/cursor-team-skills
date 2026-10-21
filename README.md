@@ -26,6 +26,7 @@ bash ~/cursor-team-skills/install.sh
 
 ```
 ~/.cursor/skills/bulk-etc-change -> ~/cursor-team-skills/bulk-etc-change
+~/.cursor/skills/cloud-mest-clip -> ~/cursor-team-skills/cloud-mest-clip
 ```
 
 ### 3. הפעלה מחדש
@@ -38,6 +39,7 @@ bash ~/cursor-team-skills/install.sh
 
 ```
 /bulk-etc-change
+/cloud-mest-clip
 ```
 
 ---
@@ -81,6 +83,7 @@ git push
 | סקיל | תיאור |
 |------|--------|
 | [bulk-etc-change](bulk-etc-change/) | החלפת קבצי ETC ב-bulk לסשני GM (ext_calib.conf, כל 4 ה-views) |
+| [cloud-mest-clip](cloud-mest-clip/) | הרצת cloud-mest לקליפ: זיהוי brain מ-DE, בחירת גרסת MEST, ויצירת itrk |
 
 ---
 
